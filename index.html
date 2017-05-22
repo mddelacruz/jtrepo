@@ -4,6 +4,7 @@
 	<meta name="author" content="Mark de la Cruz" />
 	<title>JoshTobiasz.com</title>
 	<link rel="stylesheet" href="./css/style.css" />
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 <html>
 	<body>
@@ -38,7 +39,7 @@
 		<section id="home">
 			<div class="container">
 				<p>
-					<img src="http://placehold.it/200x200"/>
+					<img src="./img/josh2.jpg"/>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget lectus dapibus nunc consectetur bibendum. Etiam ut feugiat massa, id consectetur lorem. Etiam euismod tempor dolor, vitae aliquam eros congue at. Aenean a tempor nunc. Phasellus eget dui quis lectus porta vestibulum. Mauris id velit eleifend, sagittis mauris sagittis, dictum ligula. Maecenas a nulla aliquam metus malesuada consequat ut sed turpis. Aenean convallis egestas tortor, non placerat arcu cursus nec. Vestibulum nec felis ac orci faucibus ornare. Sed viverra volutpat quam, at ultricies leo. In a vehicula urna. Nunc leo sem, dictum id bibendum ut, luctus sit amet sem. In nec vestibulum purus. Aenean placerat molestie molestie. Donec in faucibus justo, eget varius nunc.
 				</p>
 			</div>
@@ -47,7 +48,7 @@
 		<section id="about">
 			<div class="container">
 				<h1>About</h1>
-				<p><img src="http://placehold.it/200x200"  />
+				<p><img src="./img/josh4.jpg"  />
 					Donec ornare viverra dui, quis tempus massa dapibus in. Quisque finibus volutpat nibh, id gravida ipsum feugiat ut. Quisque mollis, justo elementum maximus feugiat, urna risus tincidunt urna, non interdum felis sapien id urna. Donec commodo ligula id ex porttitor feugiat. Vivamus eu cursus lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vel euismod mauris, quis pharetra nulla.
 
 				</p>
@@ -57,7 +58,7 @@
 
 		<section id="portfolio">
 			<div class="container">
-				<h1>Portfolio</h1>
+				<h1>Portfolio: Coming Soon!</h1>
 				<img src="http://placehold.it/350x150"  />
 				<img src="http://placehold.it/350x150"  />
 				<img src="http://placehold.it/350x150"  />
@@ -66,9 +67,9 @@
 		</section>
 
 		<section id="services">
-			<div class="container" >
+			<div class="container">
 				<h1>Services</h1>
-				<img src="http://placehold.it/350x150" />
+				<img src="./img/josh1.jpg" />
 				<p>
 					I currently offer the following services:
 				</p>
@@ -87,6 +88,7 @@
 			<div class="container">
 				<h1>Contact</h1>
 				<p>
+					<img src="./img/josh5.jpg" />
 					Please send any questions to joshtobiasz@mail.com!
 				</p>
 			</div>
@@ -97,6 +99,47 @@
 
 		</footer>
 		<h1>Nextsite.com is working in its own directory.</h1>
-	</body>
 
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var lastSection = '';
+			var sectionList = $('.sidenav').find('a');
+			var sectionItems = sectionList.map(function () {
+				var x = $($(this).attr('href'));
+				if(x.length) {
+					return x;
+				}
+			})
+			console.log(sectionList);
+
+			$('a[href^="#"]').on('click', function(e){
+				e.preventDefault();
+				var sectionId = $(this).attr('href');
+				var fromTop = $(sectionId).offset().top;
+				$('html, body').animate({scrollTop:fromTop}, 1000);
+
+				$(window).scroll(function () {
+					var fromTop=$(this).scrollTop();
+
+					var currentSection = sectionItems.map(function() {
+						if($(this).offset().top < fromTop) return this;
+					})
+
+					currentSection = currentSection[currentSection.length-1];
+					var id = currentSection && currentSection.length ? currentSection[0].id:"";
+					console.log(id);
+
+					if(lastSection != id) {
+						lastSection = currentSection;
+						console.log(lastSection);
+						sectionList.parent().removeClass("active").end().filter("a[href^='#"
+						+ id +"']").parent().addClass("active");
+					}
+				})
+
+			})
+		});
+	</script>
 </html>

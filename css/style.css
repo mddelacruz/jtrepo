@@ -1,13 +1,14 @@
 body {
-  font-family: Arial, "Helvetica, sans-serif";
+  font-family: 'Montserrat', sans-serif;
   font-size: 15 px;
   line-height: 1.5;
   padding: 0;
   margin:0;
-  color: #FF7600;
-  background-image: url("../img/piano-color.jpg");
+  color: cornflowerblue;
+  background-image: url("../img/piano-rose.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: cover;
 }
 
 /* Global settings*/
@@ -36,11 +37,27 @@ ul {
   padding: 0;
 }
 
+h1 {
+  color: #FFB40E;
+}
+
+/* container */
+section .container{
+  height: 300px;
+}
+
+section#portfolio .container{
+  height: 200px;
+}
+
+img {
+  height: 200px;
+}
 
 /* header */
 header {
-  background: #2E7FC3;
-  color: #FF8E2D;
+  background: Black;
+  color: ##FFB40E;
   padding-top: 15px;
   min-height: 70px;
   border-bottom: #17607F 3px solid;
@@ -88,13 +105,9 @@ header a:hover {
   font-weight: bold;
 }
 
-#block {
-
-}
-
 #home img, #services img{
   float: left;
-  padding: 0 10px 10px 0;
+  padding: 0 15px 10px 0;
 }
 
 #home {
@@ -115,6 +128,10 @@ header a:hover {
   text-align: left;
 }
 
+#portfolio img {
+  display: none;
+}
+
 #services {
   text-align: center;
 }
@@ -123,16 +140,22 @@ header a:hover {
   text-align: left;
 }
 
+#contact img {
+  float: left;
+}
+
+/* side navigation */
 .sidenav {
 
     position: fixed;
-    right: 15px;
+    right: 10%;
     top: 20%;
     height: 150px;
     opacity: 0.9;
     z-index: 100;
     margin:0;
     padding: 0;
+    display: none;
 
 }
 
@@ -159,4 +182,58 @@ header a:hover {
 
 .sidenav li.active a {
   background-color: cornflowerblue;
+}
+
+/* responsive */
+@media screen and (max-width:980px) {
+  .sidenav {
+    display: none;
+  }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15 px;
+    line-height: 1.5;
+    padding: 0;
+    margin:0;
+    color: cornflowerblue;
+    background-image: url("../img/piano-rose.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+  }
+
+  header nav, header #branding,
+  header li, header a{
+    float: none;
+    text-align: center;
+    margin:auto;
+    width: 100%;
+  }
+
+  #home img, #about img,
+  #services img {
+    float: none;
+    text-align: center;
+    display: block;
+    margin:auto;
+  }
+
+  section .container,
+  section#portfolio .container, section#services .container,
+  section#container .container,#portfolio h1, #services h1  {
+    float: none;
+    text-align: center;
+    margin:auto;
+    height:auto;
+  }
+
+  .sidenav {
+    right: 30px;
+  }
+
+
+  #services ul {
+    text-align: center;
+  }
 }
