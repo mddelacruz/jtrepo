@@ -1,5 +1,5 @@
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 15 px;
   line-height: 1.5;
   padding: 0;
@@ -27,9 +27,11 @@ body {
 }*/
 
 /*header */.container {
-  width: 80%;
+  width: 60%;
   margin: auto;
   overflow: hidden;
+  background-color: rgba(0,0,0, 0.7);
+  padding: 10px;
 }
 
 ul {
@@ -55,7 +57,7 @@ img {
 }
 
 /* header */
-header {
+header, footer{
   background: Black;
   color: ##FFB40E;
   padding-top: 15px;
@@ -107,7 +109,7 @@ header a:hover {
 
 #home img, #services img{
   float: left;
-  padding: 0 15px 10px 0;
+  padding: 0 20px 10px 0;
 }
 
 #home {
@@ -115,7 +117,7 @@ header a:hover {
 
 }
 
-#about img {
+#about img, #contact img{
   float: right;
   padding: 0 0 10px 20px;
 }
@@ -138,10 +140,6 @@ header a:hover {
 
 #services ul {
   text-align: left;
-}
-
-#contact img {
-  float: left;
 }
 
 /* side navigation */
@@ -184,7 +182,21 @@ header a:hover {
   background-color: cornflowerblue;
 }
 
+footer {
+  border-top: #17607F 3px solid;
+  text-align: center;
+}
+
 /* responsive */
+
+@media screen and (max-width:1366px){
+  /*header */.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+  }
+}
+
 @media screen and (max-width:980px) {
   .sidenav {
     display: none;
@@ -212,11 +224,12 @@ header a:hover {
   }
 
   #home img, #about img,
-  #services img {
+  #services img, #contact img{
     float: none;
     text-align: center;
     display: block;
     margin:auto;
+    padding: 0 0 0 0;
   }
 
   section .container,
@@ -235,5 +248,51 @@ header a:hover {
 
   #services ul {
     text-align: center;
+  }
+}
+
+@media screen and (max-width:320px){
+  #branding {
+    font-size: 12px;
+  }
+
+  #home img, #about img,
+  #services img, #contact img{
+    float: none;
+    padding: 0 0 0 0;
+    text-align: center;
+    display: block;
+    margin:auto;
+  }
+
+}
+
+@media screen and (max-width:360px){
+  #branding {
+    font-size: 12px;
+  }
+
+  #home img, #about img,
+  #services img, #contact img{
+    float: none;
+    padding: 0 0 0 0;
+    text-align: center;
+    display: block;
+    margin:auto;
+  }
+}
+
+@media screen and (max-width:768px){
+  #branding {
+    font-size: 12px;
+  }
+
+  #home img, #about img,
+  #services img, #contact img{
+    float: none;
+    padding: 0 0 0 0;
+    text-align: center;
+    display: block;
+    margin:auto;
   }
 }
